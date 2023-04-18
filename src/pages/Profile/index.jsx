@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 
 export function Profile(){
-  
   const { user, updateProfile } = useAuth();
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -27,13 +26,16 @@ export function Profile(){
 
 
   async function handleUpdate(){
-    const user = {
+    const updated = {
       name,
       email,
       password: passwordNew,
       OldPassword: passwordOld
     }
-    await updateProfile({user, avatarFile});
+
+    const userUpdated = Object.assign(user, updated);
+
+    await updateProfile({user: userUpdated, avatarFile});
   }
 
   async function handleChangeAvatar(event){

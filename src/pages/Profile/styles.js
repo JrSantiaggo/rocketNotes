@@ -27,7 +27,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const Form = styled.div`
   max-width: 340px;
   margin: 30px auto 0;
   > div:nth-child(4){
